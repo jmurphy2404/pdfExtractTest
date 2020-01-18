@@ -1,5 +1,5 @@
 var pdfUtil = require('pdf-to-text');
-var pdf_options = ["./pdf01.pdf", "./pdf05.pdf", "./pdf06.pdf", "./pdf07.pdf", "./pdf08.pdf", "./pdf09.pdf", "./pdf10.pdf"];
+// var pdf_options = ["./pdf01.pdf", "./pdf05.pdf", "./pdf06.pdf", "./pdf07.pdf", "./pdf08.pdf", "./pdf09.pdf", "./pdf10.pdf"];
 // var keywords = ['brand partnership',
 // 'advertising',
 // 'sales',
@@ -18,13 +18,17 @@ var pdf_options = ["./pdf01.pdf", "./pdf05.pdf", "./pdf06.pdf", "./pdf07.pdf", "
 // 'content marketing',
 // 'online media',
 // 'programmatic',]
-var keywords = ['adam compagnone']
+var keywords = ['Ad Trafficking', 
+'Digital Media',
+'Programmatic',
+'Ad Serving',
+'Campaign',
+'Optimization']
 
-
-let pdf_path = "./pdf05.pdf"
+let pdf_path = "./pdf03.pdf"
 
 	pdfUtil.info(pdf_path, function(err, info){
-		// console.log(info)
+		console.log(info)
 		if(info.tagged == "yes"){
 			pdfUtil.pdfToText(pdf_path, function(err, data) {
 			  let results = [];
@@ -53,7 +57,7 @@ let pdf_path = "./pdf05.pdf"
 			  			}
 			  		}
 			  		//if keyword is found, push it into results
-			  		if (keywords[i].toLowerCase() == splitData[j].toLowerCase()){
+			  		else if (keywords[i].toLowerCase() == splitData[j].toLowerCase()){
 			  			results.push(keywords[i]);
 			  		}
 			  	}
